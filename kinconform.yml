@@ -5,4 +5,4 @@ channels:
   - defaults
 dependencies:
   - python=2.7.17
-  - mdanalysis=0.20.1
+  - mdanalysis=0.16.2
