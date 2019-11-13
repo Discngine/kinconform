@@ -1,0 +1,20 @@
+#!/bin/csh
+
+# MAPGAPS alignment:
+\rm -f PloopGTPase.mpa
+\rm -f PloopGTPase.dft
+\rm -f PloopGTPase.xpq
+\rm -f PloopGTPase.xup
+
+\rm -f GTPases_aln.cma
+\rm -f GTPases_aln.seq
+
+\rm -f FromTemplateOnly*
+
+\rm -f Template*
+
+\rm -f GTPaseDBS_aln*
+
+\rm -f FamilyConverted.cma
+
+

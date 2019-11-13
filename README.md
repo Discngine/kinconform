@@ -21,3 +21,23 @@ Please ensure the following software is installed:
 - `MDAnalysis <http://www.mdanalysis.org>`
 - `Biocma <https://github.com/etal/biocma>`
 - `MAPGAPS <http://mapgaps.igs.umaryland.edu>` 
+
+#Installation of development environment
+create conda environment: 
+```conda create -n kinconform python=2.7.17
+conda activate kinconform
+conda install mdanalysis
+```
+
+##Building biomca and mapgaps 
+###Biomca
+Go to the included biomca folder. Activate the kinconform conda environment first. 
+```conda activate kinconform
+cd biomca
+python setup.py build
+python setup.py install
+```
+###MAPGAPS
+The source code of MAPGAPS is not available and there's only a linux compiled distribution of it available. This distribution is included in the MAPGAPS folder. If you are not on linux, this can be used within Docker on other OS's. 
+
+#Building Docker Image

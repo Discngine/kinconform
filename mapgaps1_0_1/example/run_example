@@ -1,0 +1,37 @@
+#!/bin/csh
+
+echo 'running map procedure...'
+echo 'creating multiple profile alignment...'
+echo 'this will take a while...'
+../bin/run_map PloopGTPase -exclude  >& /dev/null
+echo '************************************************'
+echo 'running gaps procedure...'
+../bin/run_gaps PloopGTPase GTPases
+
+\cp -f PloopGTPase.tpl FromTemplateOnly.tpl
+
+echo '************************************************'
+echo 'running gaps procedure using only a template alignment...'
+../bin/run_gaps FromTemplateOnly GTPaseDBS
+echo '...this creates a *.cma and *.mpa files as ouput.'
+echo '************************************************'
+echo 'rerun gaps procedure with newly created files to produce an alignment.'
+../bin/run_gaps FromTemplateOnly GTPaseDBS
+echo '************************************************'
+
+\cp -f PloopGTPase.tpl Template.cma
+
+echo ' transforming a cma alignment to a fasta alignment.'
+../bin/cma2fa Template > Template_fa
+
+echo ' transforming a fasta alignment to a cma alignment.'
+../bin/fa2cma Template_fa > Template_fa.cma 
+
+echo ' creating a rich text format (.rtf) file from a cma format alignment.'
+../bin/cma2rtf Template_fa
+
+echo ' mapping a family template onto a superfamily template file.'
+../bin/run_convert SuperFamily Family > FamilyConverted.cma
+
+
+
